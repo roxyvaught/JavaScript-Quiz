@@ -63,8 +63,6 @@ section{
 #intro{
     text-align:center;
 }
-  
-/* https://developer.mozilla.org/en-US/docs/Web/CSS/cursor */
 
 button{
     background-color: var(--primary-color);
