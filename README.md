@@ -7,6 +7,6 @@ A timed coding quiz with multiple-choice questions
 * CSS 
 
 ### Deployed at 
-https://roxyvaught.github.io/JavaScript-Quiz/.
+https://roxyvaught.github.io/JavaScript-Quiz/
 
 <img src = screenshot.JPG />
