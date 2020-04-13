@@ -1,3 +1,4 @@
+// Quiz Variables
 var initialTime = 60;
 var time = 50;
 var score = 0;
@@ -6,6 +7,7 @@ var setTime;
 var answers = document.querySelectorAll('#quizHolder button');
 var clock;
 var recordsArray = [];
+
 
 var pageContentEl = function(element) {
 	return document.querySelector(element);
@@ -80,10 +82,7 @@ var enterInitials = function() {
 		pageContentEl('#errorAlert p').innerHTML = "You need at least 1 character";
 		pageContentEl('#errorAlert').classList.remove('invisible', errorAlert());
 	} else if (initialsRecord.match(/[[A-Za-z]/) === null) {
-		pageContentEl('#errorAlert p').innerHTML = "Only letters for initials allowed.";
-		pageContentEl('#errorAlert').classList.remove('invisible', errorAlert());
-	} else if (initialsRecord.length > 5) {
-		pageContentEl('#errorAlert p').innerHTML = "Maximum of 5 characters allowed.";
+		pageContentEl('#errorAlert p').innerHTML = "Please only enter letters for initials.";
 		pageContentEl('#errorAlert').classList.remove('invisible', errorAlert());
 	} else {
 		recordsArray.push({
@@ -134,7 +133,7 @@ var scoreTimeAdjust = function () {
 		score = score + 1;
 		quizCount = quizCount + 1;
 		quizUpdate("Correct");
-	}else{
+	} else {
 		time = time - 5;
 		quizCount = quizCount + 1;
 		quizUpdate("Incorrect");
@@ -165,12 +164,10 @@ var recordsHtmlReset = function() {
 
 Array.from(answers).forEach(check => {check.addEventListener('click', scoreTimeAdjust);});
 
+// Event Listeners 
+
 pageContentEl("#intro button").addEventListener("click", startQuiz);
-
 pageContentEl("#records button").addEventListener("click", enterInitials);
-
 pageContentEl("#clearScores").addEventListener("click", clearHighScores);
-
 pageContentEl("#reset").addEventListener("click", quizReset);
-
 pageContentEl("#scores").addEventListener("click", viewHighScores);
